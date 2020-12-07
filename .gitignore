@@ -11,6 +11,7 @@
 *.sln.docstates
 Debug/
 External/
+Collision/*.dll
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
