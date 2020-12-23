@@ -11,7 +11,7 @@ void Game::initVariables()
 
 void Game::initWindow()
 {
-	this->videoMode = sf::VideoMode(1280, 720);
+	this->videoMode = sf::VideoMode(720, 720);
 	this->window = new sf::RenderWindow(this->videoMode, "Collision", sf::Style::Close | sf::Style::Titlebar);
 	this->window->setFramerateLimit(60);
 }
@@ -83,6 +83,7 @@ void Game::spawnBalls()
 	}
 }
 
+// Control the frequency of creating type of ball
 int Game::ballType()
 {
 	const int randValue = rand() % 100 + 1;
@@ -97,6 +98,8 @@ int Game::ballType()
 	return (type = BallType::DEFAULT);
 }
 
+
+// While creating ball shound not overlap
 Ball Game::addBall()
 {
 	const Ball ball = Ball(this->window, rand() % BallType::NROFTYPE);
@@ -112,7 +115,7 @@ Ball Game::addBall()
 }
 
 
-
+// Checking coliision ball with player(box).
 void Game::checkCollision()
 {
 	for (size_t i = 0; i < this->balls.size(); i++) {
